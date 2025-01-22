@@ -23,7 +23,7 @@ class Game extends AppChildProcess {
 	var curGameSpeed = 1.0;
 	var slowMos : Map<SlowMoId, { id:SlowMoId, t:Float, f:Float }> = new Map();
 
-
+	
 	public function new() {
 		super();
 
@@ -40,9 +40,12 @@ class Game extends AppChildProcess {
 		fx = new Fx();
 		hud = new ui.Hud();
 		camera = new Camera();
+		
 
-		startLevel(Assets.worldData.all_worlds.SampleWorld.all_levels.FirstLevel);
+		startLevel(Assets.worldData.all_worlds.SampleWorld.all_levels.Testing_chamber);
+	    
 	}
+
 
 
 	public static function isGameControllerLocked() {
@@ -234,4 +237,5 @@ class Game extends AppChildProcess {
 		}
 	}
 }
+
 

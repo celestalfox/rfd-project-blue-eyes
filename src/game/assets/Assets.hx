@@ -83,6 +83,7 @@ class Assets {
 			tmod = 0;
 
 		tiles.tmod = tmod;
+		
 		// <-- add other atlas TMOD updates here
 	}
 
