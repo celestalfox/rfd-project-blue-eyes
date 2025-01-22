@@ -28,7 +28,9 @@ class SamplePlayer extends Entity {
     var shieldRegenTime: Float = 8.0; // Time to regenerate shield
     var shieldCooldown: Float = 0; // Timer for shield regeneration
     var isShieldActive: Bool = true; // Whether the shield is currently active
-    
+    var spriteBatch:SpriteBatch;
+    var tileGroup:h2d.TileGroup;
+    var sprites:Array<Sprite>;
 
     var isDashing = false;
     var dashDuration = 0.02;
@@ -53,7 +55,14 @@ class SamplePlayer extends Entity {
     public function new() {
         super(5, 5);
 
-         
+         // Loads hxd.Res.char1_test.Player.png
+
+
+        // Load all sprites for each action and boost level
+        spriteBatch = new SpriteBatch();
+        tileGroup = new TileGroup();
+        sprites = new Array<Sprite>();
+
 
 
 
@@ -74,13 +83,27 @@ class SamplePlayer extends Entity {
 
         
     }
-    
+    public function loadSprites(): Void {
+        try {
+            // Load the sprite using hxd.Res
+            var sprite = new Sprite();
+            sprite.load(Res.char1_test.Player.toBitmap());
+            sprites.push(sprite);
+            spriteBatch.add(sprite);
+        } catch (e: Dynamic) {
+            trace('Failed to load sprite: $e');
+        }
+    }
 
     public function update():Void {
         // Update logic for player entity
     }
 
 
+
+    public function render():Void {
+        spriteBatch.render();
+    }
 
     private function sign(value: Float): Int {
         if (value > 0) return 1;

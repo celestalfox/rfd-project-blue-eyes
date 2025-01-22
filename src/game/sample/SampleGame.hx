@@ -14,7 +14,6 @@ class SampleGame extends Game {
 	override function startLevel(l:World_Level) {
 		super.startLevel(l);
 		new SamplePlayer();
-		SamplePlayer.loadSprites(); // Loads hxd.Res.char1_test.Player.png
 	}
 }
 
